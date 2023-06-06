@@ -62,7 +62,7 @@
           <!-- Navbar -->
 
     
-          <ul class="nav nav-tabs layout-navbar navbar navbar-detached bg-navbar-theme justify-content-center">
+          <ul class="nav nav-tabs layout-navbar navbar justify-content-center">
             <li class="nav-item">
               <button class="nav-link active" data-bs-toggle="javascript:void(0)">主页</button>
             </li>
@@ -81,15 +81,15 @@
           <div class="content-wrapper">
             <!-- Content -->
 
-            <div class="container-xxl flex-grow-1 container-p-y">
+            <!-- Section 1 -->
+            <section class="container-xxl flex-grow-1 container-p-y" id="main-feature">
               <div class="card text-center">
                <!--  <div class="card-header">
                   Featured
                 </div> -->
                 <div class="container flex-grow-1 container-p-y">
                   <img src="assets/img/backgrounds/3.jpg" class="img-thumbnail">
-<!--                   <img src="../../assets/img/backgrounds/2.jpg" class="img-thumbnail">
- -->                </div>
+                </div>
                 <div class='container'>
               
                   <form action="/upload" class="dropzone needsclick" id="dropzone-basic">
@@ -110,7 +110,73 @@
                 </div>
           
               </div>
-            </div>
+            </section>
+
+            <!-- Section 2 subscription -->
+            <section class="container-xxl flex-grow-1 container-p-y" id="subscription">
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                  <div class="card text-center shadow border h-100">
+                    <div class="card-body">
+                      <h5 class="card-title">基础套餐</h5>
+                    </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">$9.99/月</li>
+                        <li class="list-group-item">每月可生成20张AI图片</li>
+                        <li class="list-group-item">访问所有公开可用的AI生成工具和模板</li>
+                        <li class="list-group-item">电子邮件支持</li>
+                        <li class="list-group-item">包括商业使用权</li>
+                        <li class="list-group-item">适合个人用户、小型创业公司、那些刚开始尝试AI生成图片的用户</li>
+                      </ul>
+                      <div class="card-body">
+                        <a href="#" class="btn btn-primary">订阅</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card text-center shadow border h-100">
+                    <div class="card-body">
+                      <h5 class="card-title">专业套餐</h5>
+                    </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">$29.99/月</li>
+                        <li class="list-group-item">每月可生成100张AI图片</li>
+                        <li class="list-group-item">优先访问新的AI生成工具和模板</li>
+                        <li class="list-group-item">24/7客户服务支持</li>
+                        <li class="list-group-item">包括商业使用权</li>
+                        <li class="list-group-item">适合专业设计师、中型公司、频繁需要AI生成图片的用户</li>
+                      </ul>
+                      <div class="card-body">
+                        <a href="#" class="btn btn-primary">订阅</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card text-center shadow border h-100">
+                    <div class="card-body">
+                      <h5 class="card-title">企业套餐</h5>
+                    </div>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item">$200/月</li>
+                        <li class="list-group-item">无限制生成AI图片</li>
+                        <li class="list-group-item">优先访问所有新的AI生成工具和模板</li>
+                        <li class="list-group-item">优先客户服务支持，包括定制需求</li>
+                        <li class="list-group-item">包括商业使用权和再销售权</li>
+                        <li class="list-group-item">可以在多个账号之间共享订阅</li>
+                      </ul>
+                      <div class="card-body">
+                      <a href="#" class="btn btn-primary">订阅</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </section>
+
+            <!-- Section 3 about us -->
+            <section>
+              
+            </section>
             <!-- / Content -->
 
             <!-- Footer -->
@@ -125,14 +191,6 @@
                     </script>
                     , made with ❤️ by <a href="" target="_blank" class="fw-semibold">AI Bros</a>
                   </div>
-             <!--      <div>
-                    <a
-                      href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation/"
-                      target="_blank"
-                      class="footer-link me-4"
-                      >Documentation</a
-                    >
-                  </div> -->
                 </div>
               </div>
             </footer>
