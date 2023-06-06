@@ -592,3 +592,4 @@ const myDropzone = new Dropzone('#dropzone-basic', {
   addRemoveLinks: true,
   maxFiles: 1
 });
+
