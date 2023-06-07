@@ -586,7 +586,7 @@ if (typeof $ !== 'undefined') {
 }
 
 // add dropzone image upload form
-const myDropzone = new Dropzone('#dropzone-basic', {
+const myDropzone = new Dropzone('#dropzone-user-input-image', {
   parallelUploads: 1,
   maxFilesize: 5,
   addRemoveLinks: true,

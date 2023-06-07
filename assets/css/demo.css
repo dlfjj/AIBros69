@@ -36,6 +36,10 @@
   filter: blur(0.15rem);
 }
 
+.custom-size{
+  max-width: 30rem;
+}
+
 /* ! For .layout-navbar-fixed added fix padding top tpo .layout-page */
 .layout-navbar-fixed .layout-wrapper:not(.layout-without-menu) .layout-page {
   padding-top: 64px !important;
