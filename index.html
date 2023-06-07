@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <link rel="stylesheet" href="assets/vendor/libs/node-waves/node-waves.css" />
     <link rel="stylesheet" href="assets/vendor/libs/dropzone/dropzone.css" />
+
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -92,8 +93,8 @@
                   <img src="assets/img/backgrounds/3.jpg" class="img-thumbnail shadow-lg">
                 </div>
 
-                <div class='container custom-size'>             
-                  <form action="/upload" class="dropzone needsclick" id="dropzone-user-input-image">
+                <div class='container'>             
+                  <form class="dropzone needsclick" id="dropzone-user-input-image">
                     <div class="dz-message needsclick">
                       点击上传或者拖动图片到这个区域里面
                       <span class="note needsclick"> （我们会确保你上传图片数据的<strong>安全</strong>，请放心上传)</span>
@@ -101,16 +102,22 @@
                     <div class="fallback">
                       <input name="file" type="file" />
                     </div>
-                    
                   </form>
-                
                 </div>
       
                 <div class="card-body">
                   <h5 class="card-title">上传你需要改造的空间</h5>
-                  <a href="#" class="btn btn-primary"><i class="ti ti-palette"></i>&nbsp点击生成图片</a>
+                  <button class="btn btn-primary" id="submit-image">
+                    <div id="upload-image-text">
+                      <i class="ti ti-palette"></i>
+                      <span>&nbsp点击生成图片</span>  
+                    </div>
+                    <div class="visually-hidden" id="loading_spinner">
+                      <span class="spinner-border" role="status" aria-hidden="true"></span>
+                      <span>&nbsp正在上传中...</span>
+                    </div>
+                  </button>
                 </div>
-          
               </div>
             </section>
 
@@ -234,8 +241,7 @@
     <!-- endbuild -->
 
     <!-- Vendors JS -->
-    <script src="assets/vendor/libs/dropzone/dropzone.js"></script>
-
+    <script src="assets/vendor/libs/dropzone/dropzone-min.js"></script>
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
 

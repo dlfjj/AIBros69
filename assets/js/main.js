@@ -585,11 +585,55 @@ if (typeof $ !== 'undefined') {
   });
 }
 
+
+// Jacky Customization Section
+//------------------------------------------------------------------
 // add dropzone image upload form
+const ai_image_api = 'https://4a0025c7-58dc-4646-b39a-cd2ef1701297.mock.pstmn.io/image/generate';
+const loading_spinner = document.getElementById('loading_spinner');
+const image_input_test = document.getElementById('upload-image-text');
+const submitButton = document.getElementById('submit-image');
+ 
+
 const myDropzone = new Dropzone('#dropzone-user-input-image', {
   parallelUploads: 1,
   maxFilesize: 5,
   addRemoveLinks: true,
-  maxFiles: 1
+  maxFiles: 1,
+  url: ai_image_api,
+  autoProcessQueue:false
 });
 
+// Trigger file upload when button is clicked
+submitButton.addEventListener("click", function(e) {
+  loading_spinner.classList.remove('visually-hidden');
+  image_input_test.classList.add('visually-hidden');
+  submitButton.disabled = true;
+  myDropzone.processQueue();
+});
+
+myDropzone.on("addedfile", function(file) {
+  console.log("Added file");
+});
+
+myDropzone.on("processing", function(data) {
+  console.log("Uploading");
+});
+
+// Success event
+myDropzone.on("success", function(file, response) {
+  console.log("File uploaded successfully. Server Response: ", response);
+  loading_spinner.classList.add('visually-hidden');  // Hide the spinner
+  image_input_test.classList.remove('visually-hidden');
+  submitButton.disabled = false;
+  myDropzone.removeAllFiles(true);
+
+});
+
+// Error event
+myDropzone.on("error", function(file, errorMessage) {
+  console.log("File upload failed. Error Message: ", errorMessage);
+  loading_spinner.classList.add('visually-hidden');  // Hide the spinner
+  image_input_test.classList.remove('visually-hidden');
+  submitButton.disabled = false;
+});
