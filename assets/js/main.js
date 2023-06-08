@@ -592,12 +592,13 @@ if (typeof $ !== 'undefined') {
 // Jacky Customization Section
 //------------------------------------------------------------------
 // add dropzone image upload form
-const ai_image_api = 'https://4a0025c7-58dc-4646-b39a-cd2ef1701297.mock.pstmn.io/image/generate';
+// Dev Server - http://43.156.113.40:7860/
+// Postman local Mock Server - https://4a0025c7-58dc-4646-b39a-cd2ef1701297.mock.pstmn.io/image/generate
+const ai_image_api = 'http://43.156.113.40:7860/';
 const loading_spinner = document.getElementById('loading_spinner');
 const image_input_test = document.getElementById('upload-image-text');
 const submitButton = document.getElementById('submit-image');
  
-
 const myDropzone = new Dropzone('#dropzone-user-input-image', {
   maxFilesize: 5,
   addRemoveLinks: true,
@@ -625,6 +626,8 @@ myDropzone.on("sending", function(file, xhr, formData) {
 
   // Append this information to the formData
   formData.append("uploadOption", selectedOption);
+
+  console.log(formData);
   console.log("Sending: ", formData);
 
 });
