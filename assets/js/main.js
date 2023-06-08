@@ -14,6 +14,9 @@ if (document.getElementById('layout-menu')) {
   isHorizontalLayout = document.getElementById('layout-menu').classList.contains('menu-horizontal');
 }
 
+// InitCustomOptionCheck for form upload
+window.Helpers.initCustomOptionCheck();
+
 
 (function () {
   if (typeof Waves !== 'undefined') {
@@ -596,12 +599,12 @@ const submitButton = document.getElementById('submit-image');
  
 
 const myDropzone = new Dropzone('#dropzone-user-input-image', {
-  parallelUploads: 1,
   maxFilesize: 5,
   addRemoveLinks: true,
   maxFiles: 1,
   url: ai_image_api,
-  autoProcessQueue:false
+  autoProcessQueue:false,
+  maxFiles: 100
 });
 
 // Trigger file upload when button is clicked
@@ -612,13 +615,23 @@ submitButton.addEventListener("click", function(e) {
   myDropzone.processQueue();
 });
 
-myDropzone.on("addedfile", function(file) {
+/* myDropzone.on("addedfile", function(file) {
   console.log("Added file");
+}); */
+
+myDropzone.on("sending", function(file, xhr, formData) {
+  // Get the selected radio button value
+  var selectedOption = document.querySelector('input[name="sytlePreferrance"]:checked').value;
+
+  // Append this information to the formData
+  formData.append("uploadOption", selectedOption);
+  console.log("Sending: ", formData);
+
 });
 
-myDropzone.on("processing", function(data) {
+/* myDropzone.on("processing", function(file) {
   console.log("Uploading");
-});
+}); */
 
 // Success event
 myDropzone.on("success", function(file, response) {
@@ -627,7 +640,6 @@ myDropzone.on("success", function(file, response) {
   image_input_test.classList.remove('visually-hidden');
   submitButton.disabled = false;
   myDropzone.removeAllFiles(true);
-
 });
 
 // Error event

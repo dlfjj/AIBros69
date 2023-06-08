@@ -84,16 +84,10 @@
 
             <!-- Section 1 -->
             <section class="container-xxl" id="main-feature">
-              <div class="card text-center">
-                <div class="card-header text-left">
-                  <br>
-                  <!-- <span><small>*点击生成按钮后，效果图会显示在以下的框框里</small></span> -->
-                </div>
-                <div class="container flex-grow-1 container-p-y">
-                  <img src="assets/img/backgrounds/3.jpg" class="img-thumbnail shadow-lg">
-                </div>
+              <div class="card text-center pt-5">
+                <div class='container'>   
 
-                <div class='container'>             
+                  <!-- File Upload Form -->
                   <form class="dropzone needsclick" id="dropzone-user-input-image">
                     <div class="dz-message needsclick">
                       点击上传或者拖动图片到这个区域里面
@@ -103,8 +97,43 @@
                       <input name="file" type="file" />
                     </div>
                   </form>
+
+                  <!-- Style Select Form -->
+                  <div class="row pt-4">
+                    <div class="col-md mb-md-0 mb-2">
+                      <div class="form-check custom-option custom-option-image custom-option-image-radio">
+                        <label class="form-check-label custom-option-content" for="AmericanStyleImg" >
+                          <span class="custom-option-body">
+                            <img src="assets/img/elements/17.png" alt="radioImg" />
+                          </span>
+                        </label>
+                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="AmericanStyleImg"  value="American countryside style living room" checked />
+                      </div>
+                    </div>
+                    <div class="col-md mb-md-0 mb-2">
+                      <div class="form-check custom-option custom-option-image custom-option-image-radio">
+                        <label class="form-check-label custom-option-content" for="MediterraneanStyleImg">
+                          <span class="custom-option-body">
+                            <img src="assets/img/elements/18.png" alt="radioImg" />
+                          </span>
+                        </label>
+                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="MediterraneanStyleImg" value="Mediterranean coastal style living room"  />
+                      </div>
+                    </div>
+                    <div class="col-md">
+                      <div class="form-check custom-option custom-option-image custom-option-image-radio">
+                        <label class="form-check-label custom-option-content" for="JapaneseStyleImg">
+                          <span class="custom-option-body ">
+                            <img src="assets/img/elements/19.png" alt="radioImg" />
+                          </span>
+                        </label>
+                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="JapaneseStyleImg" value="Japanese mininalist style living room"/>
+                      </div>
+                    </div>
+                  </div>
                 </div>
       
+                <!-- submit form button -->
                 <div class="card-body">
                   <h5 class="card-title">上传你需要改造的空间</h5>
                   <button class="btn btn-primary" id="submit-image">
@@ -117,6 +146,13 @@
                       <span>&nbsp正在上传中...</span>
                     </div>
                   </button>
+
+                  <div class="card-header text-left">
+                    <!-- <span><small>*点击生成按钮后，效果图会显示在以下的框框里</small></span> -->
+                  </div>
+                  <div class="container flex-grow-1 container-p-y">
+                    <img src="assets/img/backgrounds/3.jpg" class="img-thumbnail shadow-lg">
+                  </div>
                 </div>
               </div>
             </section>
