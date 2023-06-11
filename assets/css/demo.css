@@ -33,7 +33,7 @@
 
 /* custom image blurry effect */
 .img-thumbnail{
-  filter: blur(0.15rem);
+  /* filter: blur(0.15rem); */
 }
 
 .custom-size{

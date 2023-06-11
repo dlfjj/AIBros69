@@ -613,25 +613,14 @@ submitButton.addEventListener("click", function(e) {
   loading_spinner.classList.remove('visually-hidden');
   image_input_test.classList.add('visually-hidden');
   submitButton.disabled = true;
-  myDropzone.processQueue();
-});
-
-myDropzone.on("addedfile", function(file) {
-  // var reader = new FileReader();
-  // reader.onload = function(event) {
-  //   // modify file.upload with base64 content and leave only filename in file
-  //   file.upload.filename = file.name;
-  //   file.upload.base64image = event.target.result;
-  // };
-  // reader.readAsDataURL(file);
-
-
-  myDropzone.options.autoProcessQueue = false;
-
+  
+  //upload image to server and get it back
+  let file = myDropzone.files[0];
   // Convert file to Base64
   let reader = new FileReader();
   let prompt = document.querySelector('input[name="sytlePreferrance"]:checked').value;
   let image_code_for_ctrlnet = file.upload.base64image;
+  let image_generated = '';
 
   reader.onloadend = function () {
       // Prepare your JSON data
@@ -668,21 +657,37 @@ myDropzone.on("addedfile", function(file) {
               'Content-Type': 'application/json'
           },
           body: jsonData
-      }).then(response => response.json())
-      .then(data => console.log(data.images[0]))
+      }).then(response => response.json()).then(
+        data => {
+          if (data && data.images && data.images[0]) {
+            console.log(data.images[0]);
+            let base64Image = 'data:image/jpeg;base64,' + data.images[0];
+            let imgElement = document.getElementById('generatedImage');
+            imgElement.src = base64Image;
+            console.log("File uploaded successfully. Server Response: ", data.image);
+            loading_spinner.classList.add('visually-hidden');  // Hide the spinner
+            image_input_test.classList.remove('visually-hidden');
+            submitButton.disabled = false;
+          }
+        }
+      )
       .catch(error => {
           // Handle the error
           console.log(error);
       });
   };
+
   reader.readAsDataURL(file);
 
+  //myDropzone.processQueue();
+});
+
+myDropzone.on("addedfile", function(file) {
   console.log("Added file");
 });
 
+
 myDropzone.on("sending", function(file, xhr, formData) {
-
-
   console.log("Sending: ");
 });
 
