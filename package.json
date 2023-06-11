@@ -64,6 +64,7 @@
     "jquery-datatables-checkboxes": "1.2.13",
     "jquery-sticky": "1.0.4",
     "jquery.repeater": "1.2.1",
+    "js-base64": "^3.7.5",
     "jstree": "3.3.12",
     "jszip": "3.10.1",
     "katex": "0.16.2",

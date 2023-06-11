@@ -594,7 +594,7 @@ if (typeof $ !== 'undefined') {
 // add dropzone image upload form
 // Dev Server - http://43.156.113.40:7860/
 // Postman local Mock Server - https://4a0025c7-58dc-4646-b39a-cd2ef1701297.mock.pstmn.io/image/generate
-const ai_image_api = 'http://43.156.113.40:7860/';
+const ai_image_api = 'http://43.156.113.40:7860/sdapi/v1/txt2img';
 const loading_spinner = document.getElementById('loading_spinner');
 const image_input_test = document.getElementById('upload-image-text');
 const submitButton = document.getElementById('submit-image');
@@ -602,7 +602,7 @@ const submitButton = document.getElementById('submit-image');
 const myDropzone = new Dropzone('#dropzone-user-input-image', {
   maxFilesize: 5,
   addRemoveLinks: true,
-  maxFiles: 1,
+  maxFiles: 5,
   url: ai_image_api,
   autoProcessQueue:false,
   maxFiles: 100
@@ -616,20 +616,74 @@ submitButton.addEventListener("click", function(e) {
   myDropzone.processQueue();
 });
 
-/* myDropzone.on("addedfile", function(file) {
+myDropzone.on("addedfile", function(file) {
+  // var reader = new FileReader();
+  // reader.onload = function(event) {
+  //   // modify file.upload with base64 content and leave only filename in file
+  //   file.upload.filename = file.name;
+  //   file.upload.base64image = event.target.result;
+  // };
+  // reader.readAsDataURL(file);
+
+
+  myDropzone.options.autoProcessQueue = false;
+
+  // Convert file to Base64
+  let reader = new FileReader();
+  let prompt = document.querySelector('input[name="sytlePreferrance"]:checked').value;
+  let image_code_for_ctrlnet = file.upload.base64image;
+
+  reader.onloadend = function () {
+      // Prepare your JSON data
+      let data = {
+        "prompt": prompt,
+        "sampler_name": "Euler",
+        "batch size":1,
+        "negative_prompt": "",
+        "batch_size": 1,
+        "steps": 20,
+        "cfg_scale": 7,
+        "alwayson_scripts":{
+          "controlnet": {
+            "args": [
+              {
+                "input_image": image_code_for_ctrlnet,
+                "model": "control_v11p_sd15_mlsd_fp16 [77b5ad24]",
+                "module":"mlsd",
+                "threshold_a":0.1,
+                "threshold_b":0.1
+              }
+            ]
+          }
+        }
+      };
+
+      // Convert JSON object to string
+      let jsonData = JSON.stringify(data);
+
+      // Use Fetch API or another AJAX method to send the JSON data to the server
+      fetch(ai_image_api, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: jsonData
+      }).then(response => response.json())
+      .then(data => console.log(data.images[0]))
+      .catch(error => {
+          // Handle the error
+          console.log(error);
+      });
+  };
+  reader.readAsDataURL(file);
+
   console.log("Added file");
-}); */
+});
 
 myDropzone.on("sending", function(file, xhr, formData) {
-  // Get the selected radio button value
-  var selectedOption = document.querySelector('input[name="sytlePreferrance"]:checked').value;
 
-  // Append this information to the formData
-  formData.append("uploadOption", selectedOption);
 
-  console.log(formData);
-  console.log("Sending: ", formData);
-
+  console.log("Sending: ");
 });
 
 /* myDropzone.on("processing", function(file) {
@@ -652,3 +706,5 @@ myDropzone.on("error", function(file, errorMessage) {
   image_input_test.classList.remove('visually-hidden');
   submitButton.disabled = false;
 });
+
+
