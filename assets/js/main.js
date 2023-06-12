@@ -620,7 +620,6 @@ submitButton.addEventListener("click", function(e) {
   let reader = new FileReader();
   let prompt = document.querySelector('input[name="sytlePreferrance"]:checked').value;
   let image_code_for_ctrlnet = file.upload.base64image;
-  let image_generated = '';
 
   reader.onloadend = function () {
       // Prepare your JSON data
@@ -664,7 +663,7 @@ submitButton.addEventListener("click", function(e) {
             let base64Image = 'data:image/jpeg;base64,' + data.images[0];
             let imgElement = document.getElementById('generatedImage');
             imgElement.src = base64Image;
-            console.log("File uploaded successfully. Server Response: ", data.image);
+            console.log("File uploaded successfully");
             loading_spinner.classList.add('visually-hidden');  // Hide the spinner
             image_input_test.classList.remove('visually-hidden');
             submitButton.disabled = false;
@@ -711,5 +710,7 @@ myDropzone.on("error", function(file, errorMessage) {
   image_input_test.classList.remove('visually-hidden');
   submitButton.disabled = false;
 });
+
+
 
 
