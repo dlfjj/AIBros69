@@ -685,6 +685,7 @@ submitButton.addEventListener("click", function(e) {
 });
 
 myDropzone.on("addedfile", function(file) {
+  submitButton.disabled = false;
   console.log("Added file");
 });
 
