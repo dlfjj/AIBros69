@@ -672,7 +672,10 @@ submitButton.addEventListener("click", function(e) {
       )
       .catch(error => {
           // Handle the error
-          console.log(error);
+          console.log("File upload failed. Error Message: ", error);
+          loading_spinner.classList.add('visually-hidden');  // Hide the spinner
+          image_input_test.classList.remove('visually-hidden');
+          submitButton.disabled = false;
       });
   };
 
