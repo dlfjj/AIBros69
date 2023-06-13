@@ -594,7 +594,8 @@ if (typeof $ !== 'undefined') {
 // add dropzone image upload form
 // Dev Server - http://43.156.113.40:7860/
 // Postman local Mock Server - https://4a0025c7-58dc-4646-b39a-cd2ef1701297.mock.pstmn.io/image/generate
-const ai_image_api = 'http://43.156.113.40:7860/sdapi/v1/txt2img';
+// const ai_image_api = 'http://43.156.113.40:7860/sdapi/v1/txt2img';
+const ai_image_api = "http://localhost:8000/aibros/api/images/";
 const loading_spinner = document.getElementById('loading_spinner');
 const image_input_test = document.getElementById('upload-image-text');
 const submitButton = document.getElementById('submit-image');
@@ -619,31 +620,16 @@ submitButton.addEventListener("click", function(e) {
   // Convert file to Base64
   let reader = new FileReader();
   let prompt = document.querySelector('input[name="sytlePreferrance"]:checked').value;
-  let image_code_for_ctrlnet = file.upload.base64image;
 
-  reader.onloadend = function () {
+
+  reader.onloadend = function (e) {
+
+      let image_code_for_ctrlnet = reader.result.split(',')[1]; // Removes 'data:image/png;base64,' from the string
       // Prepare your JSON data
       let data = {
-        "prompt": prompt,
-        "sampler_name": "Euler",
-        "batch size":1,
-        "negative_prompt": "",
-        "batch_size": 1,
-        "steps": 20,
-        "cfg_scale": 7,
-        "alwayson_scripts":{
-          "controlnet": {
-            "args": [
-              {
-                "input_image": image_code_for_ctrlnet,
-                "model": "control_v11p_sd15_mlsd_fp16 [77b5ad24]",
-                "module":"mlsd",
-                "threshold_a":0.1,
-                "threshold_b":0.1
-              }
-            ]
-          }
-        }
+        user: '1', //dummy user id, change it when we add user login feature
+        uploaded_image: image_code_for_ctrlnet,
+        style_prompt: prompt
       };
 
       // Convert JSON object to string
@@ -658,9 +644,8 @@ submitButton.addEventListener("click", function(e) {
           body: jsonData
       }).then(response => response.json()).then(
         data => {
-          if (data && data.images && data.images[0]) {
-            console.log(data.images[0]);
-            let base64Image = 'data:image/jpeg;base64,' + data.images[0];
+          if (data && data.images) {
+            let base64Image = 'data:image/jpeg;base64,' + data.images;
             let imgElement = document.getElementById('generatedImage');
             imgElement.src = base64Image;
             console.log("File uploaded successfully");
@@ -678,9 +663,7 @@ submitButton.addEventListener("click", function(e) {
           submitButton.disabled = false;
       });
   };
-
   reader.readAsDataURL(file);
-
   //myDropzone.processQueue();
 });
 
@@ -700,7 +683,7 @@ myDropzone.on("sending", function(file, xhr, formData) {
 
 // Success event
 myDropzone.on("success", function(file, response) {
-  console.log("File uploaded successfully. Server Response: ", response);
+  console.log("Image Generate successfully. Server Response: ", response);
   loading_spinner.classList.add('visually-hidden');  // Hide the spinner
   image_input_test.classList.remove('visually-hidden');
   submitButton.disabled = false;
@@ -714,7 +697,6 @@ myDropzone.on("error", function(file, errorMessage) {
   image_input_test.classList.remove('visually-hidden');
   submitButton.disabled = false;
 });
-
 
 
 
