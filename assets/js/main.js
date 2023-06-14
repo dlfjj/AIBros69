@@ -595,8 +595,8 @@ if (typeof $ !== 'undefined') {
 // Dev Server - http://43.156.113.40:7860/
 // const ai_image_api = 'http://43.156.113.40:7860/sdapi/v1/txt2img';
 //const ai_image_api = "http://localhost:8000/aibros/api/images/";
-//const ai_image_api = "http://34.127.31.198:8080/aibros/api/images/";
-const ai_image_api = "http://10.138.0.2:8080/aibros/api/images/";
+const ai_image_api = "http://34.127.31.198:8080/aibros/api/images/";
+// const ai_image_api = "http://10.138.0.2:8080/aibros/api/images/";
 
 const loading_spinner = document.getElementById('loading_spinner');
 const image_input_test = document.getElementById('upload-image-text');
