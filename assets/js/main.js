@@ -593,9 +593,11 @@ if (typeof $ !== 'undefined') {
 //------------------------------------------------------------------
 // add dropzone image upload form
 // Dev Server - http://43.156.113.40:7860/
-// Postman local Mock Server - https://4a0025c7-58dc-4646-b39a-cd2ef1701297.mock.pstmn.io/image/generate
 // const ai_image_api = 'http://43.156.113.40:7860/sdapi/v1/txt2img';
-const ai_image_api = "http://localhost:8000/aibros/api/images/";
+//const ai_image_api = "http://localhost:8000/aibros/api/images/";
+//const ai_image_api = "http://34.127.31.198:8080/aibros/api/images/";
+const ai_image_api = "10.138.0.2:8080/aibros/api/images/";
+
 const loading_spinner = document.getElementById('loading_spinner');
 const image_input_test = document.getElementById('upload-image-text');
 const submitButton = document.getElementById('submit-image');
