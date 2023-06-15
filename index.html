@@ -83,7 +83,7 @@
             <!-- Section 1 -->
             <section class="container-xxl" id="main-feature">
               <div class="card text-center pt-5">
-                <h5 class="card-title">上传你需要改造的空间</h5>
+                <h3 class="card-title">上传你需要改造的空间</h3>
                 <div class='container'>   
 
                   <!-- File Upload Form -->
@@ -100,7 +100,10 @@
                   <!-- Style Select Form -->
 
                   <!-- first style row -->
-                  <div class="row pt-4">
+                  <div class="row mt-5">
+                    <h3>选择你的户型风格</h3>
+                  </div>
+                  <div class="row">
                     <div class="col-md mb-md-0 mb-2">
                       <div class="form-check custom-option custom-option-image custom-option-image-radio">
                         <label class="form-check-label custom-option-content" for="modernChineseStyleImg" >
@@ -109,7 +112,7 @@
                             <div>Chinese Style</div>
                           </span>
                         </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="modernChineseStyleImg"  value="Chinese modern style room" checked />
+                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="modernChineseStyleImg"  value="Chinese modern style" checked />
                       </div>
                     </div>
                     <div class="col-md mb-md-0 mb-2">
@@ -120,7 +123,7 @@
                             <div>Mediterranean Style</div>
                           </span>
                         </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="MediterraneanStyleImg" value="Mediterranean coastal style room"  />
+                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="MediterraneanStyleImg" value="Mediterranean coastal style"  />
                       </div>
                     </div>
                     <div class="col-md">
@@ -131,7 +134,7 @@
                             <div>Japanese Style</div>
                           </span>
                         </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="JapaneseStyleImg" value="Japanese mininalist style room"/>
+                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="JapaneseStyleImg" value="Japanese mininalist style"/>
                       </div>
                     </div>
                     <div class="col-md">
@@ -142,78 +145,42 @@
                             <div>American Style</div>
                           </span>
                         </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="AmericanStyleImg" value="American style room"/>
+                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="AmericanStyleImg" value="American style"/>
                       </div>
                     </div>
                   </div>
                   <!-- second style row -->
-                 <!--  <div class="row pt-4">
-                    <div class="col-md mb-md-0 mb-2">
-                      <div class="form-check custom-option custom-option-image custom-option-image-radio">
-                        <label class="form-check-label custom-option-content" for="modernChineseStyleImg" >
-                          <span class="custom-option-body">
-                            <img src="assets/img/elements/20.png" alt="radioImg" />
-                            <div>Futuristic Style</div>
-                          </span>
-                        </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="modernChineseStyleImg"  value="Futuristic Style room" checked />
-                      </div>
+                 <div class="row mt-3">
+                  <div class="form-floating col-lg-6">
+                    <input type="text" class="form-control" id="custom-styel-input" placeholder="" aria-describedby="floatingInputHelp" />
+                    <label for="custom-styel-input">输入定制风格</label>
+                    <div id="floatingInputHelp" class="form-text">"E.g., "Modern," "Mid-Century Modern," "Industrial," "Scandinavian," and "Bohemian.""
                     </div>
-                    <div class="col-md mb-md-0 mb-2">
-                      <div class="form-check custom-option custom-option-image custom-option-image-radio">
-                        <label class="form-check-label custom-option-content" for="MediterraneanStyleImg">
-                          <span class="custom-option-body">
-                            <img src="assets/img/elements/18.png" alt="radioImg" />
-                            <div>California Coastal Style</div>
-                          </span>
-                        </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="MediterraneanStyleImg" value="California Coastal Style room"  />
-                      </div>
-                    </div>
-                    <div class="col-md">
-                      <div class="form-check custom-option custom-option-image custom-option-image-radio">
-                        <label class="form-check-label custom-option-content" for="JapaneseStyleImg">
-                          <span class="custom-option-body ">
-                            <img src="assets/img/elements/19.png" alt="radioImg" />
-                            <div>Japanese Style</div>
-                          </span>
-                        </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="JapaneseStyleImg" value="Japanese mininalist style room"/>
-                      </div>
-                    </div>
-                    <div class="col-md">
-                      <div class="form-check custom-option custom-option-image custom-option-image-radio">
-                        <label class="form-check-label custom-option-content" for="AmericanStyleImg">
-                          <span class="custom-option-body ">
-                            <img src="assets/img/elements/17.png" alt="radioImg" />
-                            <div>Custom Input Style</div>
-                          </span>
-                        </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="AmericanStyleImg" value="American style room"/>
-                      </div>
-                    </div>
-                  </div> -->
+                  </div>
+          
+                  </div>
                 </div>
       
                 <!-- submit form button -->
                 <div class="card-body">
-                  <button class="btn btn-primary" id="submit-image">
-                    <div id="upload-image-text">
-                      <i class="ti ti-palette"></i>
-                      <span>&nbsp点击生成图片</span>  
-                    </div>
-                    <div class="visually-hidden" id="loading_spinner">
-                      <span class="spinner-border" role="status" aria-hidden="true"></span>
-                      <span>&nbsp正在上传中...</span>
-                    </div>
-                  </button>
-
-<!--                   <div class="card-header text-left">
- -->                    <!-- <span><small>*点击生成按钮后，效果图会显示在以下的框框里</small></span> -->
-                  <!-- </div> -->
-                  <div class="container-xxl mt-4">
-                    <img src="assets/img/elements/21.png" class="shadow-lg img-fluid p-1" id="generatedImage" alt="generatedImage">
+                  <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary btn-xl" id="submit-image" type="button">
+                      <div id="upload-image-text">
+                        <i class="ti ti-palette"></i>
+                        <span>&nbsp点击生成图片</span>  
+                      </div>
+                      <div class="visually-hidden" id="loading_spinner">
+                        <span class="spinner-border" role="status" aria-hidden="true"></span>
+                        <span>&nbsp正在上传中...</span>
+                      </div>
+                    </button>
                   </div>
+                </div>
+
+                <!-- generated image output -->
+                <div class="container-xxl mt-4 card-body">
+                  <h3>生成风格</h3>
+                  <img src="assets/img/elements/21.png" class="shadow-lg img-fluid p-1" id="generatedImage" alt="generatedImage">
                 </div>
               </div>
             </section>
@@ -280,7 +247,7 @@
             </section> -->
 
             <!-- Section 3 about us -->
-            <section class="container-xxl flex-grow-1 container-p-y" id="about-us">
+            <section class="container-xxl flex-grow-1 container-p-y shadow-lg" id="about-us">
               <div class="p-5 mb-4 bg-light rounded-3">
                 <div class="container-fluid py-5">
                   <h1 class="display-5 fw-bold">关于我们</h1>

@@ -83,13 +83,24 @@ submitButton.addEventListener("click", function(e) {
   let file = myDropzone.files[0];
   // Convert file to Base64
   let reader = new FileReader();
-  let prompt = document.querySelector('input[name="sytlePreferrance"]:checked').value;
+  let prompt = '';
+  let fixed_style = document.querySelector('input[name="sytlePreferrance"]:checked').value;
+  let custom_style = document.querySelector('input[id="custom-styel-input"]').value;
 
+  //get the prompt input from the user, else use the default prompt
+  if (fixed_style.trim() !== "") {
+    prompt = custom_style;
+  } else {
+    prompt = fixed_style;
+  }
+
+  console.log("Prompt: ", prompt);
 
   reader.onloadend = function (e) {
 
       let image_code_for_ctrlnet = reader.result.split(',')[1]; // Removes 'data:image/png;base64,' from the string
       // Prepare your JSON data
+   
       let data = {
         user: '1', //dummy user id, change it when we add user login feature
         uploaded_image: image_code_for_ctrlnet,
