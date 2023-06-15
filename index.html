@@ -112,7 +112,7 @@
                             <div>中式风格</div>
                           </span>
                         </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="modernChineseStyleImg"  value="Chinese modern style" checked />
+                        <input name="stylePreference" class="form-check-input" type="radio" id="modernChineseStyleImg"  value="Chinese modern style" checked />
                       </div>
                     </div>
                     <div class="col-md mb-md-0 mb-2">
@@ -123,7 +123,7 @@
                             <div>地中海式风格</div>
                           </span>
                         </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="MediterraneanStyleImg" value="Mediterranean coastal style"  />
+                        <input name="stylePreference" class="form-check-input" type="radio" id="MediterraneanStyleImg" value="Mediterranean coastal style"  />
                       </div>
                     </div>
                     <div class="col-md">
@@ -134,7 +134,7 @@
                             <div>日系风格</div>
                           </span>
                         </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="JapaneseStyleImg" value="Japanese mininalist style"/>
+                        <input name="stylePreference" class="form-check-input" type="radio" id="JapaneseStyleImg" value="Japanese mininalist style"/>
                       </div>
                     </div>
                     <div class="col-md">
@@ -145,19 +145,23 @@
                             <div>美式风格</div>
                           </span>
                         </label>
-                        <input name="sytlePreferrance" class="form-check-input" type="radio" id="AmericanStyleImg" value="American style"/>
+                        <input name="stylePreference" class="form-check-input" type="radio" id="AmericanStyleImg" value="American style"/>
                       </div>
                     </div>
                   </div>
                   <!-- second style row -->
                  <div class="row mt-3">
-                  <div class="form-floating col-lg-6">
-                    <input type="text" class="form-control" id="custom-styel-input" placeholder="" aria-describedby="floatingInputHelp" />
-                    <label for="custom-styel-input">输入定制风格</label>
-                    <div id="floatingInputHelp" class="form-text">"E.g., "Modern," "Mid-Century Modern," "Industrial," "Scandinavian," and "Bohemian.""
+                  <div class="col-md mb-md-0 mb-2">
+                    <div class="form-check custom-option custom-option-image custom-option-image-radio">
+                      <div class="form-floating">
+                        <input name="stylePreference" type="text" class="form-control" id="customStyelInput" placeholder="" aria-describedby="floatingInputHelp"/>
+                        <label for="customStyelInput">输入定制风格</label>
+                        <div id="floatingInputHelp" class="form-text">
+                          "E.g., "Modern," "Mid-Century Modern," "Industrial," "Scandinavian," and "Bohemian.""
+                        </div>
+                      </div>
                     </div>
                   </div>
-          
                   </div>
                 </div>
       
@@ -178,7 +182,7 @@
                 </div>
 
                 <!-- generated image output -->
-                <div class="container-xxl mt-4 card-body">
+                <div class="container-xxl mt-3 mb-5 card-body">
                   <h3>生成风格</h3>
                   <img src="assets/img/elements/21.png" class="shadow-lg img-fluid p-1" id="generatedImage" alt="generatedImage">
                 </div>

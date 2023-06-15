@@ -4,6 +4,19 @@
 
 'use strict';
 
+let stylePreference = '';
+
+document.querySelectorAll('input[name="stylePreference"]').forEach((elem) => {
+  elem.addEventListener("change", function() {
+    const textInput = document.querySelector('input[id="customStyelInput"]');
+    if (this.id === "customStyelInput") {
+      stylePreference = textInput.value
+    } else {
+      stylePreference = this.value
+    }
+  });
+});
+
 (function () {
   // previewTemplate: Updated Dropzone default previewTemplate
   // ! Don't change it unless you really know what you are doing
@@ -24,32 +37,7 @@
 </div>
 </div>`;
 
-  // Sample Code for reference
 
-  // Basic Dropzone
-  // --------------------------------------------------------------------
-/*   const dropzoneBasic = document.querySelector('#dropzone-basic');
-  if (dropzoneBasic) {
-    const myDropzone = new Dropzone(dropzoneBasic, {
-      previewTemplate: previewTemplate,
-      parallelUploads: 1,
-      maxFilesize: 5,
-      addRemoveLinks: true,
-      maxFiles: 1
-    });
-  } */
-
-  // Multiple Dropzone
-  // --------------------------------------------------------------------
-/*   const dropzoneMulti = document.querySelector('#dropzone-multi');
-  if (dropzoneMulti) {
-    const myDropzoneMulti = new Dropzone(dropzoneMulti, {
-      previewTemplate: previewTemplate,
-      parallelUploads: 1,
-      maxFilesize: 5,
-      addRemoveLinks: true
-    });
-  } */
 
   // Jacky Customization Section
 //------------------------------------------------------------------
@@ -73,6 +61,8 @@ const myDropzone = new Dropzone('#dropzone-user-input-image', {
   url: ai_image_api
 });
 
+
+
 // Trigger file upload when button is clicked
 submitButton.addEventListener("click", function(e) {
   loading_spinner.classList.remove('visually-hidden');
@@ -83,29 +73,20 @@ submitButton.addEventListener("click", function(e) {
   let file = myDropzone.files[0];
   // Convert file to Base64
   let reader = new FileReader();
-  let prompt = '';
-  let fixed_style = document.querySelector('input[name="sytlePreferrance"]:checked').value;
-  let custom_style = document.querySelector('input[id="custom-styel-input"]').value;
 
-  //get the prompt input from the user, else use the default prompt
-  if (fixed_style.trim() !== "") {
-    prompt = custom_style;
-  } else {
-    prompt = fixed_style;
-  }
-
-  console.log("Prompt: ", prompt);
 
   reader.onloadend = function (e) {
 
       let image_code_for_ctrlnet = reader.result.split(',')[1]; // Removes 'data:image/png;base64,' from the string
       // Prepare your JSON data
-   
       let data = {
         user: '1', //dummy user id, change it when we add user login feature
         uploaded_image: image_code_for_ctrlnet,
-        style_prompt: prompt
+        style_prompt: stylePreference
       };
+
+      console.log(stylePreference);
+
 
       // Convert JSON object to string
       let jsonData = JSON.stringify(data);
@@ -174,3 +155,33 @@ myDropzone.on("error", function(file, errorMessage) {
 });
 
 })();
+
+
+
+
+  // Sample Code for reference
+
+  // Basic Dropzone
+  // --------------------------------------------------------------------
+/*   const dropzoneBasic = document.querySelector('#dropzone-basic');
+  if (dropzoneBasic) {
+    const myDropzone = new Dropzone(dropzoneBasic, {
+      previewTemplate: previewTemplate,
+      parallelUploads: 1,
+      maxFilesize: 5,
+      addRemoveLinks: true,
+      maxFiles: 1
+    });
+  } */
+
+  // Multiple Dropzone
+  // --------------------------------------------------------------------
+/*   const dropzoneMulti = document.querySelector('#dropzone-multi');
+  if (dropzoneMulti) {
+    const myDropzoneMulti = new Dropzone(dropzoneMulti, {
+      previewTemplate: previewTemplate,
+      parallelUploads: 1,
+      maxFilesize: 5,
+      addRemoveLinks: true
+    });
+  } */
