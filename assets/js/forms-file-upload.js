@@ -8,8 +8,8 @@ let stylePreference = '';
 
 document.querySelectorAll('input[name="stylePreference"]').forEach((elem) => {
   elem.addEventListener("change", function() {
-    const textInput = document.querySelector('input[id="customStyelInput"]');
-    if (this.id === "customStyelInput") {
+    const textInput = document.querySelector('input[id="customStyleInput"]');
+    if (this.id === "customStyleInput") {
       stylePreference = textInput.value
     } else {
       stylePreference = this.value
@@ -61,13 +61,23 @@ const myDropzone = new Dropzone('#dropzone-user-input-image', {
   url: ai_image_api
 });
 
+ // Function to handle UI changes during fetch call
+ function handleButtonUI(isLoading) {
+  if(isLoading) {
+    loading_spinner.classList.remove('visually-hidden');
+    image_input_test.classList.add('visually-hidden');
+    submitButton.disabled = true;
+  } else {
+    loading_spinner.classList.add('visually-hidden');
+    image_input_test.classList.remove('visually-hidden');
+    submitButton.disabled = false;
+  }
+}
 
 
 // Trigger file upload when button is clicked
 submitButton.addEventListener("click", function(e) {
-  loading_spinner.classList.remove('visually-hidden');
-  image_input_test.classList.add('visually-hidden');
-  submitButton.disabled = true;
+  handleButtonUI(true);
   
   //upload image to server and get it back
   let file = myDropzone.files[0];
@@ -84,9 +94,6 @@ submitButton.addEventListener("click", function(e) {
         uploaded_image: image_code_for_ctrlnet,
         style_prompt: stylePreference
       };
-
-      console.log(stylePreference);
-
 
       // Convert JSON object to string
       let jsonData = JSON.stringify(data);
@@ -105,18 +112,16 @@ submitButton.addEventListener("click", function(e) {
             let imgElement = document.getElementById('generatedImage');
             imgElement.src = base64Image;
             console.log("File uploaded successfully");
-            loading_spinner.classList.add('visually-hidden');  // Hide the spinner
-            image_input_test.classList.remove('visually-hidden');
-            submitButton.disabled = false;
+            handleButtonUI(false);
+          } else {
+            throw new Error("Image data not found in server response.");
           }
         }
       )
       .catch(error => {
           // Handle the error
           console.log("File upload failed. Error Message: ", error);
-          loading_spinner.classList.add('visually-hidden');  // Hide the spinner
-          image_input_test.classList.remove('visually-hidden');
-          submitButton.disabled = false;
+          handleButtonUI(false);
       });
   };
   reader.readAsDataURL(file);
@@ -149,9 +154,7 @@ myDropzone.on("success", function(file, response) {
 // Error event
 myDropzone.on("error", function(file, errorMessage) {
   console.log("File upload failed. Error Message: ", errorMessage);
-  loading_spinner.classList.add('visually-hidden');  // Hide the spinner
-  image_input_test.classList.remove('visually-hidden');
-  submitButton.disabled = false;
+  handleUI(false);
 });
 
 })();
