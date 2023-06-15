@@ -24,11 +24,11 @@
 </div>
 </div>`;
 
-  // ? Start your code from here
+  // Sample Code for reference
 
   // Basic Dropzone
   // --------------------------------------------------------------------
-  const dropzoneBasic = document.querySelector('#dropzone-basic');
+/*   const dropzoneBasic = document.querySelector('#dropzone-basic');
   if (dropzoneBasic) {
     const myDropzone = new Dropzone(dropzoneBasic, {
       previewTemplate: previewTemplate,
@@ -37,11 +37,11 @@
       addRemoveLinks: true,
       maxFiles: 1
     });
-  }
+  } */
 
   // Multiple Dropzone
   // --------------------------------------------------------------------
-  const dropzoneMulti = document.querySelector('#dropzone-multi');
+/*   const dropzoneMulti = document.querySelector('#dropzone-multi');
   if (dropzoneMulti) {
     const myDropzoneMulti = new Dropzone(dropzoneMulti, {
       previewTemplate: previewTemplate,
@@ -49,14 +49,14 @@
       maxFilesize: 5,
       addRemoveLinks: true
     });
-  }
+  } */
 
   // Jacky Customization Section
 //------------------------------------------------------------------
 // add dropzone image upload form
 // Dev Server - http://43.156.113.40:7860/
 // const ai_image_api = 'http://43.156.113.40:7860/sdapi/v1/txt2img';
-//const ai_image_api = "http://localhost:8000/aibros/api/images/";
+// const ai_image_api = "http://localhost:8000/aibros/api/images/";
 const ai_image_api = "http://34.127.31.198:8080/aibros/api/images/";
 // const ai_image_api = "http://10.138.0.2:8080/aibros/api/images/";
 
