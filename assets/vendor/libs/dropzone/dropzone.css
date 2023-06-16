@@ -1,5 +1,6 @@
 .dropzone {
-  width: 100%;
+  max-width: 17rem;
+  max-height: 18rem;
   position: relative;
   padding: 1.5rem;
   cursor: pointer;
@@ -66,7 +67,6 @@
 .dz-preview {
   position: relative;
   vertical-align: top;
-  margin: 1.15rem 0 0 1.5rem;
   background: #fff;
   font-size: 0.8125rem;
   box-sizing: content-box;
@@ -229,6 +229,7 @@
   color: #5d596c;
 }
 .light-style .dz-message:before {
+  margin-left: 10px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='icon icon-tabler icon-tabler-upload' width='24' height='24' viewBox='0 0 24 24' stroke-width='2' stroke='%235d596c' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2' /%3E%3Cpolyline points='7 9 12 4 17 9' /%3E%3Cline x1='12' y1='4' x2='12' y2='16' /%3E%3C/svg%3E") !important;
   background: rgba(75, 70, 92, 0.08);
 }

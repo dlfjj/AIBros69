@@ -87,15 +87,16 @@
                 <div class='container'>   
 
                   <!-- File Upload Form -->
-                  <form class="dropzone needsclick" id="dropzone-user-input-image">
-                    <div class="dz-message needsclick">
-                      点击上传或者拖动图片到这个区域里面
-                    </div>
-                    <div class="fallback">
-                      <input name="file" type="file" />
-                    </div>
-                  </form>
-
+                  <div class="d-flex justify-content-center align-items-center">
+                    <form class="dropzone needsclick" id="dropzone-user-input-image">
+                      <div class="dz-message needsclick">
+                        <small>点击上传或者拖动图片到这个区域里面</small>
+                      </div>
+                      <div class="fallback">
+                        <input name="file" type="file" />
+                      </div>
+                    </form>
+                  </div>
                   <!-- Style Select Form -->
 
                   <!-- first style row -->
@@ -165,7 +166,7 @@
                 </div>
       
                 <!-- submit form button -->
-                  <div class="d-grid gap-2 col-6 mx-auto mt-1">
+                  <div class="d-grid gap-2 col-6 mx-auto mt-2">
                     <button class="btn btn-primary" id="submit-image" type="button">
                       <div id="upload-image-text">
                         <i class="ti ti-palette"></i>
