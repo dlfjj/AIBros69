@@ -31,10 +31,6 @@
   font-size: 1.375rem;
 }
 
-/* custom image blurry effect */
-.img-thumbnail{
-  /* filter: blur(0.15rem); */
-}
 
 .custom-size{
   max-width: 30rem;
