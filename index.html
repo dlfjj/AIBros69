@@ -82,29 +82,19 @@
 
             <!-- Section 1 -->
             <section class="container-xxl" id="main-feature">
+
+
               <div class="card text-center pt-5">
-                <h3 class="card-title">上传你需要改造的空间</h3>
+
+
                 <div class='container'>   
-
-                  <!-- File Upload Form -->
-                  <div class="d-flex justify-content-center align-items-center">
-                    <form class="dropzone needsclick" id="dropzone-user-input-image">
-                      <div class="dz-message needsclick">
-                        <small>点击上传或者拖动图片到这个区域里面</small>
-                      </div>
-                      <div class="fallback">
-                        <input name="file" type="file" />
-                      </div>
-                    </form>
-                  </div>
                   <!-- Style Select Form -->
-
                   <!-- first style row -->
-                  <div class="row mt-5">
+                  <div class="row">
                     <h3>选择你的户型风格</h3>
                   </div>
                   <div class="row">
-                    <div class="col-md mb-md-0 mb-2">
+                    <div class="col-lg-3 col-md-6 col">
                       <div class="form-check custom-option custom-option-image custom-option-image-radio">
                         <label class="form-check-label custom-option-content" for="modernChineseStyleImg" >
                           <span class="custom-option-body">
@@ -115,18 +105,18 @@
                         <input name="stylePreference" class="form-check-input" type="radio" id="modernChineseStyleImg"  value="Chinese modern style" checked />
                       </div>
                     </div>
-                    <div class="col-md mb-md-0 mb-2">
+                    <div class="col-lg-3 col-md-6">
                       <div class="form-check custom-option custom-option-image custom-option-image-radio">
                         <label class="form-check-label custom-option-content" for="MediterraneanStyleImg">
                           <span class="custom-option-body">
                             <img src="assets/img/elements/18.png" alt="radioImg" />
-                            <div>地中海式风格</div>
+                            <div><small>地中海</small></div>
                           </span>
                         </label>
                         <input name="stylePreference" class="form-check-input" type="radio" id="MediterraneanStyleImg" value="Mediterranean coastal style"  />
                       </div>
                     </div>
-                    <div class="col-md">
+                    <div class="col-lg-3 col-md-6">
                       <div class="form-check custom-option custom-option-image custom-option-image-radio">
                         <label class="form-check-label custom-option-content" for="JapaneseStyleImg">
                           <span class="custom-option-body ">
@@ -137,7 +127,7 @@
                         <input name="stylePreference" class="form-check-input" type="radio" id="JapaneseStyleImg" value="Japanese mininalist style"/>
                       </div>
                     </div>
-                    <div class="col-md">
+                    <div class="col-lg-3 col-md-6">
                       <div class="form-check custom-option custom-option-image custom-option-image-radio">
                         <label class="form-check-label custom-option-content" for="AmericanStyleImg">
                           <span class="custom-option-body ">
@@ -149,8 +139,9 @@
                       </div>
                     </div>
                   </div>
+                  
                   <!-- second style row -->
-                 <div class="row mt-3">
+                 <div class="row mt-4">
                   <div class="col-md mb-md-0 mb-2">
                     <div class="form-check custom-option custom-option-image custom-option-image-radio">
                       <div class="form-floating">
@@ -163,6 +154,22 @@
                     </div>
                   </div>
                   </div>
+
+                  <h3 class="card-title mt-3">上传你需要改造的空间</h3>
+
+                  <!-- File Upload Form -->
+                  <div class="d-flex justify-content-center align-items-center">
+                    <form class="dropzone needsclick" id="dropzone-user-input-image">
+                      <div class="dz-message needsclick">
+                        <small>点击上传或者拖动图片到这个区域里面</small>
+                      </div>
+                      <div class="fallback">
+                        <input name="file" type="file" />
+                      </div>
+                    </form>
+                  </div>
+
+
                 </div>
       
                 <!-- submit form button -->
@@ -182,7 +189,7 @@
                 <!-- generated image output -->
                 <div class="container-xxl mt-3 mb-5 card-body">
                   <h3>生成的设计</h3>
-                  <img src="assets/img/elements/21.png" class="shadow-lg img-fluid p-1" id="generatedImage" alt="generatedImage">
+                  <img src="assets/img/elements/21.png" class="shadow-lg img-fluid p-1 image-output" id="generatedImage" alt="generatedImage">
                 </div>
               </div>
             </section>
